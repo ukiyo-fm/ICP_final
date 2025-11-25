@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ICP Portfolio – Leadership Adaptability</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-main.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="top-bar">
+            <div class="logo-block">
+                <!-- SDU logo -->
+                <img src="sdu_logo copy.jpg" alt="SDU University logo" class="logo">
+                <div class="header-text">
+                    <h1>Individual Change Project</h1>
+                    <p>Leadership Adaptability through Web Development</p>
+                    <p class="subline">Leadership &amp; Change Management · SDU University</p>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    🌙
+                </button>
+            </div>
+        </div>
+
+        <nav class="main-nav">
+            <a href="index.html" class="active">Home</a>
+            <a href="progress.html">My Progress</a>
+            <a href="concepts.html">Leadership Concepts</a>
+            <a href="cv.html">CV</a>
+            <a href="game.html">Game</a>
+            <a href="reflection.html">Reflection</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <div class="hero-text">
+                <h2>Welcome to My ICP Portfolio</h2>
+                <p>
+                    I am Shahida Kaiyrbek, Management student at SDU. For this project I chose a simple
+                    but challenging goal: become more adaptable as a leader by learning web development
+                    from scratch.
+                </p>
+                <p>
+                    Over thirteen weeks I worked with HTML, CSS, JavaScript and Visual Studio Code.
+                    This website presents the main results of that journey in a clear and visual way.
+                </p>
+
+                <div class="tech-stack">
+                    <span class="stack-label">Tools I used:</span>
+                    <div class="tool-chip">
+                        <div class="tool-icon tool-html">HTML</div>
+                        <span>Page structure</span>
+                    </div>
+                    <div class="tool-chip">
+                        <div class="tool-icon tool-css">CSS</div>
+                        <span>Design &amp; layout</span>
+                    </div>
+                    <div class="tool-chip">
+                        <div class="tool-icon tool-js">JS</div>
+                        <span>Interaction</span>
+                    </div>
+                    <div class="tool-chip">
+                        <div class="tool-icon tool-vs">VS</div>
+                        <span>Coding workflow</span>
+                    </div>
+                </div>
+
+                <a href="progress.html" class="primary-btn hero-btn">
+                    Let’s dive into my journey →
+                </a>
+            </div>
+
+            <div class="hero-photo">
+                <!-- changed photo to me copy.jpg -->
+                <img src="me copy.jpg" alt="Shahida at desk" class="profile-photo">
+            </div>
+        </section>
+
+        <!-- WHAT I LEARNED CARDS (shorter) -->
+        <section class="cards-section">
+            <h2>What I Learned</h2>
+            <div class="cards-grid">
+                <article class="card">
+                    <h3>HTML</h3>
+                    <p>
+                        I learned how to organise content with headings, lists and simple layouts so a page
+                        is easy to follow.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <h3>CSS</h3>
+                    <p>
+                        I experimented with colours, fonts and responsive design to make pages look clean
+                        on different screens.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <h3>JavaScript</h3>
+                    <p>
+                        I built a small leadership quiz, a motivation generator and an interactive memory game.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <h3>Leadership Skills</h3>
+                    <p>
+                        While coding, I practised patience, emotional control and problem-solving – core skills
+                        for adaptable leadership.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- SHORT LINK SECTION -->
+        <section class="link-section">
+            <div class="link-text">
+                <h2>From Code to Leadership</h2>
+                <p>
+                    This website is both a technical product and a reflection of my change process.
+                    You can explore my previous work, see how leadership theory was applied, and view my CV.
+                </p>
+            </div>
+            <div class="link-actions">
+                <a href="progress.html" class="secondary-btn">See my projects</a>
+                <a href="concepts.html" class="ghost-btn">View leadership concepts</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2025 · ICP Portfolio – Shahida Kaiyrbek · SDU University</p>
+    </footer>
+
+    <script>
+        // Simple dark/light mode toggle
+        const toggleBtn = document.getElementById("themeToggle");
+        const body = document.body;
+
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+            body.classList.add("dark");
+            toggleBtn.textContent = "☀️";
+        }
+
+        toggleBtn.addEventListener("click", () => {
+            body.classList.toggle("dark");
+            const isDark = body.classList.contains("dark");
+            toggleBtn.textContent = isDark ? "☀️" : "🌙";
+            localStorage.setItem("theme", isDark ? "dark" : "light");
+        });
+    </script>
+
+</body>
+
+</html>

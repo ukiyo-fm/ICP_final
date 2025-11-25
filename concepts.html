@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Leadership Concepts – ICP Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-main.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="top-bar">
+            <div class="logo-block">
+                <img src="sdu_logo copy.jpg" class="logo" alt="SDU logo">
+                <div class="header-text">
+                    <h1>Leadership Concepts</h1>
+                    <p>How course theory appeared in my project</p>
+                </div>
+            </div>
+
+            <button id="themeToggle" class="theme-toggle">🌙</button>
+        </div>
+
+        <nav class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="progress.html">My Progress</a>
+            <a href="concepts.html" class="active">Leadership Concepts</a>
+            <a href="cv.html">CV</a>
+            <a href="game.html">Game</a>
+            <a href="reflection.html">Reflection</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="reflection-block">
+            <h2>Short Overview</h2>
+            <p>
+                I used three main ideas from our leadership course to understand my Individual
+                Change Project: Katz’s skills, Lewin’s change model and Emotional Intelligence.
+                The table shows the core meaning of each concept and how it appeared in my coding journey.
+            </p>
+        </section>
+
+        <section class="cards-section">
+            <h2>Application in My ICP</h2>
+
+            <div class="table-wrapper">
+                <table class="concepts-table">
+                    <thead>
+                        <tr>
+                            <th>Leadership concept</th>
+                            <th>Key idea</th>
+                            <th>How it appeared in my project</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Katz’s Three Skills Model</td>
+                            <td>Leaders need technical, human and conceptual skills.</td>
+                            <td>
+                                Technical skills grew when I built and debugged webpages. Human skills appeared
+                                when I asked for help and explained my problems. Conceptual skills developed
+                                when I planned the overall structure and purpose of my website.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Lewin’s Change Model</td>
+                            <td>Change happens through unfreezing, changing and refreezing.</td>
+                            <td>
+                                I left my comfort zone (unfreezing), experimented and practised new coding
+                                routines (change), and finally stabilised them once I could work more
+                                confidently (refreezing).
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Emotional Intelligence (Goleman)</td>
+                            <td>Leaders manage their own emotions and relationships well.</td>
+                            <td>
+                                I used self-awareness and self-regulation to stay calm during errors, kept
+                                myself motivated and communicated with others when I needed support.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2025 · ICP Portfolio – Shahida Kaiyrbek</p>
+    </footer>
+
+    <script>
+        const toggleBtn = document.getElementById("themeToggle");
+        const body = document.body;
+        const savedTheme = localStorage.getItem("theme");
+
+        if (savedTheme === "dark") {
+            body.classList.add("dark");
+            toggleBtn.textContent = "☀️";
+        }
+
+        toggleBtn.addEventListener("click", () => {
+            body.classList.toggle("dark");
+            const isDark = body.classList.contains("dark");
+            toggleBtn.textContent = isDark ? "☀️" : "🌙";
+            localStorage.setItem("theme", isDark ? "dark" : "light");
+        });
+    </script>
+
+</body>
+
+</html>

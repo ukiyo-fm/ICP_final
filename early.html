@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Early HTML Practice – ICP Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-main.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="top-bar">
+            <div class="logo-block">
+                <img src="sdu_logo copy.jpg" class="logo" alt="SDU logo">
+                <div class="header-text">
+                    <h1>Early HTML Practice</h1>
+                    <p>My first experiments with structure and layout</p>
+                </div>
+            </div>
+
+            <button id="themeToggle" class="theme-toggle">🌙</button>
+        </div>
+
+        <nav class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="progress.html" class="active">My Progress</a>
+            <a href="concepts.html">Leadership Concepts</a>
+            <a href="cv.html">CV</a>
+            <a href="game.html">Game</a>
+            <a href="reflection.html">Reflection</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="reflection-block">
+            <h2>Simple Page Structure</h2>
+            <p>
+                This page shows elements I practised at the beginning of the project: headings, lists,
+                a small table and a basic form. It represents my starting point in HTML.
+            </p>
+        </section>
+
+        <section class="cards-section">
+            <h2>Example Content</h2>
+
+            <article class="card">
+                <h3>Study Plan List</h3>
+                <ul>
+                    <li>Learn basic HTML tags</li>
+                    <li>Add simple CSS styles</li>
+                    <li>Practise forms and tables</li>
+                </ul>
+            </article>
+
+            <article class="card">
+                <h3>Weekly Schedule (Table)</h3>
+                <table style="width:100%; border-collapse:collapse; font-size:0.9rem;">
+                    <tr>
+                        <th style="border:1px solid #dde2eb; padding:6px;">Day</th>
+                        <th style="border:1px solid #dde2eb; padding:6px;">Focus</th>
+                    </tr>
+                    <tr>
+                        <td style="border:1px solid #dde2eb; padding:6px;">Monday</td>
+                        <td style="border:1px solid #dde2eb; padding:6px;">HTML tags &amp; structure</td>
+                    </tr>
+                    <tr>
+                        <td style="border:1px solid #dde2eb; padding:6px;">Wednesday</td>
+                        <td style="border:1px solid #dde2eb; padding:6px;">CSS basics</td>
+                    </tr>
+                    <tr>
+                        <td style="border:1px solid #dde2eb; padding:6px;">Friday</td>
+                        <td style="border:1px solid #dde2eb; padding:6px;">Small project practice</td>
+                    </tr>
+                </table>
+            </article>
+
+            <article class="card">
+                <h3>Simple Contact Form</h3>
+                <form>
+                    <label for="name">Name:</label><br>
+                    <input id="name" type="text" placeholder="Enter your name"
+                        style="width:100%; padding:6px; margin:4px 0;"><br>
+
+                    <label for="reason">Reason for contact:</label><br>
+                    <select id="reason" style="width:100%; padding:6px; margin:4px 0;">
+                        <option>ICP project question</option>
+                        <option>Web development</option>
+                        <option>Leadership topic</option>
+                    </select><br>
+
+                    <label for="message">Message:</label><br>
+                    <textarea id="message" rows="3" style="width:100%; padding:6px; margin:4px 0;"></textarea><br>
+
+                    <button type="submit" class="primary-btn">Send</button>
+                </form>
+            </article>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2025 · ICP Portfolio – Shahida Kaiyrbek</p>
+    </footer>
+
+    <script>
+        const toggleBtn = document.getElementById("themeToggle");
+        const body = document.body;
+        const savedTheme = localStorage.getItem("theme");
+
+        if (savedTheme === "dark") {
+            body.classList.add("dark");
+            toggleBtn.textContent = "☀️";
+        }
+
+        toggleBtn.addEventListener("click", () => {
+            body.classList.toggle("dark");
+            const isDark = body.classList.contains("dark");
+            toggleBtn.textContent = isDark ? "☀️" : "🌙";
+            localStorage.setItem("theme", isDark ? "dark" : "light");
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Reflection – ICP Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-main.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="top-bar">
+            <div class="logo-block">
+                <img src="sdu_logo copy.jpg" class="logo" alt="SDU logo">
+                <div class="header-text">
+                    <h1>Reflection</h1>
+                    <p>What I took from this project</p>
+                </div>
+            </div>
+
+            <button id="themeToggle" class="theme-toggle">🌙</button>
+        </div>
+
+        <nav class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="progress.html">My Progress</a>
+            <a href="concepts.html">Leadership Concepts</a>
+            <a href="cv.html">CV</a>
+            <a href="game.html">Game</a>
+            <a href="reflection.html" class="active">Reflection</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="reflection-block">
+            <h2>Short Conclusion</h2>
+            <p>
+                This project showed me that real leadership development can happen through a very
+                practical task such as learning web development. By working with HTML, CSS and
+                JavaScript I trained my patience, adaptability and emotional control. I also learned
+                that I can handle unfamiliar, technical content if I break it down and stay consistent.
+            </p>
+            <p>
+                I now see coding not only as a digital skill but as a way to practise problem-solving
+                and self-management, which are essential for a future manager.
+            </p>
+        </section>
+
+        <section class="cards-section">
+            <h2>Before &amp; After</h2>
+
+            <div class="reflection-two-col">
+                <div class="reflection-col">
+                    <h3>Before</h3>
+                    <ul>
+                        <li>Coding felt far from management and “too technical”.</li>
+                        <li>Adaptability sounded abstract, not like a daily habit.</li>
+                        <li>Errors in learning made me doubt my ability.</li>
+                    </ul>
+                </div>
+                <div class="reflection-col">
+                    <h3>After</h3>
+                    <ul>
+                        <li>I see web development as a useful tool for presenting ideas and projects.</li>
+                        <li>Adaptability now means trying new strategies and staying calm under pressure.</li>
+                        <li>I treat mistakes as normal feedback, not as proof that I cannot do it.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2025 · ICP Portfolio – Shahida Kaiyrbek</p>
+    </footer>
+
+    <script>
+        const toggleBtn = document.getElementById("themeToggle");
+        const body = document.body;
+        const savedTheme = localStorage.getItem("theme");
+
+        if (savedTheme === "dark") {
+            body.classList.add("dark");
+            toggleBtn.textContent = "☀️";
+        }
+
+        toggleBtn.addEventListener("click",
+

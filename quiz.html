@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Leadership Quiz – ICP Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-main.css">
+    <style>
+        .quiz-wrapper {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .quiz-question {
+            margin-bottom: 14px;
+            padding: 10px 12px;
+            border-radius: 10px;
+            background: #ffffff;
+            border: 1px solid #e5e7f2;
+            font-size: 0.95rem;
+        }
+
+        .quiz-question p {
+            margin: 0 0 6px;
+            font-weight: 600;
+        }
+
+        .quiz-question label {
+            display: block;
+            margin: 3px 0;
+            font-weight: 400;
+        }
+
+        .quiz-result {
+            margin-top: 16px;
+            padding: 12px 14px;
+            border-radius: 10px;
+            background: #e8f0ff;
+            font-size: 0.95rem;
+        }
+
+        .dark .quiz-question {
+            background: #1f2128;
+            border-color: #2a2c33;
+        }
+
+        .dark .quiz-result {
+            background: #243457;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="top-bar">
+            <div class="logo-block">
+                <img src="sdu_logo copy.jpg" class="logo" alt="SDU logo">
+                <div class="header-text">
+                    <h1>Leadership Quiz</h1>
+                    <p>Which leadership tendency is closest to you?</p>
+                </div>
+            </div>
+
+            <button id="themeToggle" class="theme-toggle">🌙</button>
+        </div>
+
+        <nav class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="progress.html">My Progress</a>
+            <a href="concepts.html">Leadership Concepts</a>
+            <a href="cv.html">CV</a>
+            <a href="game.html">Game</a>
+            <a href="reflection.html">Reflection</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="cards-section">
+            <h2>Short Leadership Style Quiz</h2>
+            <div class="quiz-wrapper">
+                <form id="quizForm">
+                    <div class="quiz-question">
+                        <p>1. When your team gets a new task, you usually:</p>
+                        <label><input type="radio" name="q1" value="visionary"> Share a big-picture vision and inspire
+                            them.</label>
+                        <label><input type="radio" name="q1" value="organized"> Create a clear step-by-step
+                            plan.</label>
+                        <label><input type="radio" name="q1" value="supportive"> Ask how they feel about the task
+                            first.</label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <p>2. A teammate makes the same mistake again. You:</p>
+                        <label><input type="radio" name="q2" value="supportive"> Calmly explain and encourage
+                            them.</label>
+                        <label><input type="radio" name="q2" value="organized"> Set stricter structure and
+                            checkpoints.</label>
+                        <label><input type="radio" name="q2" value="visionary"> Remind them of the long-term
+                            goal.</label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <p>3. What motivates you most as a leader?</p>
+                        <label><input type="radio" name="q3" value="visionary"> Seeing new ideas become reality.</label>
+                        <label><input type="radio" name="q3" value="organized"> When everything is under
+                            control.</label>
+                        <label><input type="radio" name="q3" value="supportive"> When people feel safe and grow.</label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <p>4. Under stress, you try to:</p>
+                        <label><input type="radio" name="q4" value="organized"> Make a list and prioritise
+                            tasks.</label>
+                        <label><input type="radio" name="q4" value="supportive"> Talk to someone and share
+                            feelings.</label>
+                        <label><input type="radio" name="q4" value="visionary"> Focus on the future and new
+                            solutions.</label>
+                    </div>
+
+                    <button type="submit" class="primary-btn">See my result</button>
+                </form>
+
+                <div id="quizResult" class="quiz-result" style="display:none;"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2025 · ICP Portfolio – Shahida Kaiyrbek</p>
+    </footer>
+
+    <script>
+        // DARK MODE
+        const toggleBtn = document.getElementById("themeToggle");
+        const body = document.body;
+        const savedTheme = localStorage.getItem("theme");
+
+        if (savedTheme === "dark") {
+            body.classList.add("dark");
+            toggleBtn.textContent = "☀️";
+        }
+
+        toggleBtn.addEventListener("click", () => {
+            body.classList.toggle("dark");
+            const isDark = body.classList.contains("dark");
+            toggleBtn.textContent = isDark ? "☀️" : "🌙";
+            localStorage.setItem("theme", isDark ? "dark" : "light");
+        });
+
+        // QUIZ LOGIC
+        const quizForm = document.getElementById("quizForm");
+        const quizResult = document.getElementById("quizResult");
+
+        quizForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(quizForm);
+            const counts = { visionary: 0, organized: 0, supportive: 0 };
+
+            for (const [name, value] of formData.entries()) {
+                counts[value]++;
+            }
+
+            let topType = "visionary";
+            if (counts.organized > counts[topType]) topType = "organized";
+            if (counts.supportive > counts[topType]) topType = "supportive";
+
+            let message = "";
+
+            if (topType === "visionary") {
+                message = "You show a visionary tendency. You like big ideas, change and long-term goals. In projects like this ICP, you enjoy creating something new and meaningful.";
+            } else if (topType === "organized") {
+                message = "You show an organised tendency. You value structure, planning and control. In learning, you feel safer when tasks are clear and you can follow a step-by-step plan.";
+            } else {
+                message = "You show a supportive tendency. You focus on people, emotions and relationships. You try to keep the atmosphere safe and motivating, even during difficult tasks.";
+            }
+
+            quizResult.style.display = "block";
+            quizResult.textContent = message;
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Progress – ICP Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-main.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="top-bar">
+            <div class="logo-block">
+                <img src="sdu_logo copy.jpg" class="logo" alt="SDU logo">
+                <div class="header-text">
+                    <h1>My Progress & Previous Work</h1>
+                    <p>Week-by-week evidence of learning and improvement</p>
+                </div>
+            </div>
+
+            <button id="themeToggle" class="theme-toggle">🌙</button>
+        </div>
+
+        <nav class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="progress.html" class="active">My Progress</a>
+            <a href="concepts.html">Leadership Concepts</a>
+            <a href="cv.html">CV</a>
+            <a href="game.html">Game</a>
+            <a href="reflection.html">Reflection</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- INTRO -->
+        <section class="reflection-block">
+            <h2>Overview of My ICP Journey</h2>
+            <p>
+                Over thirteen weeks I created multiple webpages, interactive tools and layouts.
+                Each project helped me practice problem-solving, patience and adaptability.
+                Below you can explore all completed artefacts from the project including the
+                SDU portal page, the leadership quiz, the motivation generator, and more.
+            </p>
+        </section>
+
+        <!-- PROJECT GALLERY -->
+        <section class="cards-section">
+            <h2>Project Gallery</h2>
+
+            <div class="cards-grid">
+
+                <!-- SDU PORTAL PAGE -->
+                <article class="card">
+                    <h3>SDU Portal Page</h3>
+                    <p>A recreated student portal interface built during Weeks 4–5.</p>
+                    <a href="portal.html" class="primary-btn" target="_blank">Open</a>
+                </article>
+
+                <!-- EARLY HTML/CSS -->
+                <article class="card">
+                    <h3>Early HTML Practice</h3>
+                    <p>My first HTML structures, lists, tables and a simple form.</p>
+                    <a href="early.html" class="secondary-btn" target="_blank">Open</a>
+                </article>
+
+
+                <!-- QUIZ -->
+                <article class="card">
+                    <h3>Leadership Quiz</h3>
+                    <p>A personality quiz built using JavaScript logic and DOM manipulation.</p>
+                    <a href="quiz.html" class="primary-btn" target="_blank">Try Quiz</a>
+                </article>
+
+                <!-- MOTIVATION GENERATOR -->
+                <article class="card">
+                    <h3>Motivation Generator</h3>
+                    <p>A JavaScript tool that gives random leadership quotes for motivation.</p>
+                    <a href="motivation.html" class="primary-btn" target="_blank">Generate Motivation</a>
+                </article>
+
+                <!-- PORTFOLIO (THIS WEBSITE) -->
+                <article class="card">
+                    <h3>ICP Portfolio Website</h3>
+                    <p>This complete multi-page presentation website built in Week 13.</p>
+                    <a href="index.html" class="secondary-btn">Home</a>
+                </article>
+
+            </div>
+        </section>
+        <!-- Situational Leadership Matrix -->
+        <section class="cards-section">
+            <h2>Situational Leadership Matrix (S1–S4 × D1–D4)</h2>
+            <p>Hover or tap the boxes to see the matching leadership style for each development level.</p>
+
+            <div class="matrix-container">
+                <table class="slm-table interactive">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>S1<br>Directing</th>
+                            <th>S2<br>Coaching</th>
+                            <th>S3<br>Supporting</th>
+                            <th>S4<br>Delegating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>D1<br>Low competence,<br>high commitment</th>
+                            <td data-tip="Best match: S1 — give clear instructions and close guidance"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <th>D2<br>Some competence,<br>low commitment</th>
+                            <td></td>
+                            <td data-tip="Best match: S2 — explain decisions, motivate and support learning"></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <th>D3<br>Moderate competence,<br>variable commitment</th>
+                            <td></td>
+                            <td></td>
+                            <td data-tip="Best match: S3 — support, encourage and listen"></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <th>D4<br>High competence,<br>high commitment</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td data-tip="Best match: S4 — delegate responsibilities and trust them"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+
+        <!-- Dark mode script -->
+        <script>
+            const toggleBtn = document.getElementById("themeToggle");
+            const body = document.body;
+            const savedTheme = localStorage.getItem("theme");
+
+            if (savedTheme === "dark") {
+                body.classList.add("dark");
+                toggleBtn.textContent = "☀️";
+            }
+
+            toggleBtn.addEventListener("click", () => {
+                body.classList.toggle("dark");
+                const isDark = body.classList.contains("dark");
+                toggleBtn.textContent = isDark ? "☀️" : "🌙";
+                localStorage.setItem("theme", isDark ? "dark" : "light");
+            });
+        </script>
+
+</body>
+
+</html>

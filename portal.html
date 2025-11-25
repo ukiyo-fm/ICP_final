@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SDU Student Portal Prototype</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-main.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="top-bar">
+            <div class="logo-block">
+                <img src="sdu_logo copy.jpg" class="logo" alt="SDU logo">
+                <div class="header-text">
+                    <h1>SDU Student Portal (Prototype)</h1>
+                    <p>HTML &amp; CSS practice · Weeks 4–5</p>
+                </div>
+            </div>
+
+            <button id="themeToggle" class="theme-toggle">🌙</button>
+        </div>
+
+        <nav class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="progress.html" class="active">My Progress</a>
+            <a href="concepts.html">Leadership Concepts</a>
+            <a href="cv.html">CV</a>
+            <a href="game.html">Game</a>
+            <a href="reflection.html">Reflection</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="cards-section">
+            <h2>Student Portal Layout</h2>
+
+            <div class="portal-layout">
+                <aside class="portal-sidebar">
+                    <h3>Menu</h3>
+                    <ul>
+                        <li>Dashboard</li>
+                        <li>Courses</li>
+                        <li>Schedule</li>
+                        <li>Grades</li>
+                        <li>Profile</li>
+                    </ul>
+                </aside>
+
+                <div class="portal-main">
+                    <div class="portal-header">
+                        <h3>Welcome, Shahida</h3>
+                        <p>Today is a good day to learn something new.</p>
+                    </div>
+
+                    <div class="portal-widgets">
+                        <div class="portal-card">
+                            <h4>Today’s classes</h4>
+                            <ul>
+                                <li>09:00 – Big Data Analysis</li>
+                                <li>11:00 – Leadership &amp; Change</li>
+                                <li>14:00 – Financial Management</li>
+                            </ul>
+                        </div>
+
+                        <div class="portal-card">
+                            <h4>Notifications</h4>
+                            <ul>
+                                <li>New assignment uploaded for Leadership class.</li>
+                                <li>Midterm results are available.</li>
+                                <li>Reminder: ICP presentation next week.</li>
+                            </ul>
+                        </div>
+
+                        <div class="portal-card">
+                            <h4>Quick links</h4>
+                            <ul>
+                                <li>Library</li>
+                                <li>MOODLE</li>
+                                <li>Exam schedule</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2025 · SDU Student Portal Prototype – Shahida Kaiyrbek</p>
+    </footer>
+
+    <script>
+        const toggleBtn = document.getElementById("themeToggle");
+        const body = document.body;
+        const savedTheme = localStorage.getItem("theme");
+
+        if (savedTheme === "dark") {
+            body.classList.add("dark");
+            toggleBtn.textContent = "☀️";
+        }
+
+        toggleBtn.addEventListener("click", () => {
+            body.classList.toggle("dark");
+            const isDark = body.classList.contains("dark");
+            toggleBtn.textContent = isDark ? "☀️" : "🌙";
+            localStorage.setItem("theme", isDark ? "dark" : "light");
+        });
+    </script>
+
+</body>
+
+</html>
